@@ -35,5 +35,9 @@ if ! [[ -z "$DOCKER_CONTAINER" ]]; then
   docker stop ${DOCKER_CONTAINER} && docker rm ${DOCKER_CONTAINER}
 fi
 
+if [ ! -f images/development.env ]; then
+    cp images/development.env.example images/development.env
+fi
+
 ln -sf images/development.env .env
 docker-compose up --build
