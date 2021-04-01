@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -38,28 +39,9 @@ abstract class AbstractRepository implements RepositoryInterface
     {
         $results = $this->model::query();
 
-        /**
-         * Example:
-         * name DESC, date ASC
-         * $orderBy = [ '-name' => 'DESC', 'date' => 'ASC']
-         * http://api/v1/author?order_by=-name,date
-         */
-        foreach ($orderBy as $key => $value) {
-            if (strstr($key, '-')) {
-                $key = substr($key, 1);
-            }
+        $results = $this->buildOrderBy($results, $orderBy);
 
-            $results->orderBy($key, $value);
-        }
-
-        // appends insert into url on pagination
-        // http://api/v1/author?order_by=-name,date&limit=12
-        return $results->paginate($limit)
-            ->appends([
-                'order_by' => implode(',', array_keys($orderBy)),
-                'limit' => $limit
-            ])
-            ->toArray();
+        return $this->buildPaginate($results, $orderBy, $limit);
     }
 
     /**
@@ -110,6 +92,24 @@ abstract class AbstractRepository implements RepositoryInterface
             }
         }
 
+        $results = $this->buildOrderBy($results, $orderBy);
+
+        return $this->buildPaginate($results, $orderBy, $limit, $string);
+    }
+
+    /**
+     *
+     * Example:
+     * name DESC, date ASC
+     * $orderBy = [ '-name' => 'DESC', 'date' => 'ASC']
+     * http://api/v1/author?order_by=-name,date
+     *
+     * @param Builder $results
+     * @param array $orderBy
+     * @return Builder
+     */
+    protected function buildOrderBy(Builder $results, array $orderBy): Builder
+    {
         foreach ($orderBy as $key => $value) {
             if (strstr($key, '-')) {
                 $key = substr($key, 1);
@@ -118,14 +118,31 @@ abstract class AbstractRepository implements RepositoryInterface
             $results->orderBy($key, $value);
         }
 
-        // appends insert into url on pagination
-        // http://api/v1/author?order_by=-name,date&limit=12
+        return $results;
+    }
+
+    /**
+     * 
+     * Appends = insert into queryStrings into url on pagination
+     * http://api/v1/author?order_by=-name,date&limit=12
+     * 
+     * @param Builder $results
+     * @param array $orderBy
+     * @param integer $limit
+     * @param string $query
+     * @return array
+     */
+    protected function buildPaginate(Builder $results, array $orderBy, int $limit, string $query = null): array
+    {
+        $appends = [
+            'order_by' => implode(',', array_keys($orderBy)),
+            'limit' => $limit
+        ];
+        if (!empty($query)) {
+            $appends['q'] = $query;
+        }
         return $results->paginate($limit)
-            ->appends([
-                'order_by' => implode(',', array_keys($orderBy)),
-                'q' => $string,
-                'limit' => $limit
-            ])
+            ->appends($appends)
             ->toArray();
     }
 }
