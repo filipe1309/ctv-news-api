@@ -37,7 +37,7 @@ cd ctv-news-api
 #### Run the migrations to create db tables
 
 ```sh
-php artisan migrate
+docker exec -t news-api_php_1 php artisan migrate
 ```
 
 ### 🏃 Runnning
