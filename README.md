@@ -14,6 +14,10 @@ This project was developed following Console TV youtube playlist "[Lumen Microfr
 -   [Lumen](https://lumen.laravel.com/)
 -   [Docker](https://www.docker.com/)
 
+## 🧰 Architecture
+
+![alt](public/db-er-diagram.png)
+
 ## :octocat: Setup
 
 ### Installation
@@ -24,6 +28,12 @@ git@github.com:filipe1309/ctv-news-api.git
 
 # Enter project folder
 cd ctv-news-api
+```
+
+#### Run the migrations to create db tables
+
+```sh
+php artisan migrate
 ```
 
 ### 🏃 Runnning
