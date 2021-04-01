@@ -16,7 +16,11 @@ This project was developed following Console TV youtube playlist "[Lumen Microfr
 
 ## 🧰 Architecture
 
+### DB ER Diagram
+
 ![alt](public/db-er-diagram.png)
+
+### Service-Repository Pattern
 
 ## :octocat: Setup
 
