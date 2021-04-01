@@ -21,6 +21,7 @@ class CreateNewsTable extends Migration
             $table->string('subtitle', 155);
             $table->text('description');
             $table->timestamp('published_at')->nullable();
+            $table->string('slug', 255);
             $table->boolean('active')->default(true);
             $table->timestamps(); // created_at, updated_at
             $table->timestamp('deleted_at')->nullable();
