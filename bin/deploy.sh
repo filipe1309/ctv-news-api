@@ -43,7 +43,7 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
     echo "---------------------------------------------"
     echo "Deploying..."
-    git tag -a $TAG_NAME -m $TAG_MSG && git ps origin $GIT_BRANCH && git ps origin $GIT_BRANCH --tags && git co main && git pl
+    git tag -a $TAG_NAME -m "$TAG_MSG" && git ps origin $GIT_BRANCH && git ps origin $GIT_BRANCH --tags && git co main && git pl
     echo "Deploy completed!"
 else
     echo "Bye =)"
