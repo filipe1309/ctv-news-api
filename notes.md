@@ -1,4 +1,5 @@
 https://www.youtube.com/playlist?list=PLTZ2g-iFpCUuNWZ7wtDoxbKpSAChDyS0o
+https://github.com/jhones/api-noticias-lumen
 
 php artisan make:migration create_author_table
 php artisan make:migration create_news_table
