@@ -10,6 +10,8 @@ php artisan key:generate
 
 php artisan migrate
 
+https://github.com/lephleg/laravel-lumen-docker
+https://github.com/saada/docker-lumen
 docker network create newsapi_default
 docker-compose up --build -d
 
@@ -22,3 +24,8 @@ show tables;
 describe author;
 
 localhost:5001
+
+mysql -uroot -p
+
+apt install iputils-ping
+ping db
