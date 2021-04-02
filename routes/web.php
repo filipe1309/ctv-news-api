@@ -17,7 +17,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'api/v1', 'namespace' => 'Author'], function () use ($router) {
+$router->group(['prefix' => 'api/v1', 'namespace' => 'V1\Author'], function () use ($router) {
     $router->post('/authors', [
         'uses' => 'AuthorController@create'
     ]);
@@ -40,5 +40,39 @@ $router->group(['prefix' => 'api/v1', 'namespace' => 'Author'], function () use 
 
     $router->delete('/authors/{id}', [
         'uses' => 'AuthorController@delete'
+    ]);
+});
+
+$router->group(['prefix' => 'api/v1', 'namespace' => 'V1\News'], function () use ($router) {
+    $router->post('/news', [
+        'uses' => 'NewsController@create'
+    ]);
+
+    $router->get('/news', [
+        'uses' => 'NewsController@findAll'
+    ]);
+
+    $router->get('/news/author/{authorId}', [
+        'uses' => 'NewsController@findByAuthor'
+    ]);
+
+    $router->get('/news/{param}', [
+        'uses' => 'NewsController@findBy'
+    ]);
+
+    $router->put('/news/{param}', [
+        'uses' => 'NewsController@editBy'
+    ]);
+
+    $router->patch('/news/{param}', [
+        'uses' => 'NewsController@editBy'
+    ]);
+
+    $router->delete('/news/{param}', [
+        'uses' => 'NewsController@deleteBy'
+    ]);
+
+    $router->delete('/news/{authorId}', [
+        'uses' => 'NewsController@deleteByAuthor'
     ]);
 });
