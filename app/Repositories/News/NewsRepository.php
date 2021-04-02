@@ -72,7 +72,7 @@ class NewsRepository extends AbstractRepository
     }
 
     /**
-     * Delete all new of a specific author
+     * Delete all news of a specific author
      *
      * @param integer $authorId
      * @return boolean
