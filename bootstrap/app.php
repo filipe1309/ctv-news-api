@@ -95,6 +95,10 @@ $app->configure('app');
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
+$app->register(App\Providers\AuthorServiceProvider::class);
+$app->register(App\Providers\NewsServiceProvider::class);
+$app->register(App\Providers\ImageNewsServiceProvider::class);
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
