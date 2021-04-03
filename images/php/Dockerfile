@@ -30,7 +30,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 USER $user
 
-COPY . /var/www/html
+RUN chown -R www-data:www-data /var/www
+RUN usermod -u 1000 www-data
+USER www-data
 
 # Set working directory
 WORKDIR /var/www/html

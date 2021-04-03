@@ -76,3 +76,37 @@ $router->group(['prefix' => 'api/v1', 'namespace' => 'V1\News'], function () use
         'uses' => 'NewsController@deleteByAuthor'
     ]);
 });
+
+$router->group(['prefix' => 'api/v1', 'namespace' => 'V1\ImageNews'], function () use ($router) {
+    $router->post('/image-news', [
+        'uses' => 'ImageNewsController@create'
+    ]);
+
+    $router->get('/image-news', [
+        'uses' => 'ImageNewsController@findAll'
+    ]);
+
+    $router->get('/image-news/news/{newsId}', [
+        'uses' => 'ImageNewsController@findByNews'
+    ]);
+
+    $router->get('/image-news/{id}', [
+        'uses' => 'ImageNewsController@findOneBy'
+    ]);
+
+    $router->put('/image-news/{param}', [
+        'uses' => 'ImageNewsController@editBy'
+    ]);
+
+    $router->patch('/image-news/{param}', [
+        'uses' => 'ImageNewsController@editBy'
+    ]);
+
+    $router->delete('/image-news/{newsId}', [
+        'uses' => 'ImageNewsController@deleteByNews'
+    ]);
+
+    $router->delete('/image-news/{id}', [
+        'uses' => 'ImageNewsController@delete'
+    ]);
+});
