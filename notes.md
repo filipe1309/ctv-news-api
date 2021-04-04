@@ -30,3 +30,8 @@ mysql -uroot -p
 
 apt install iputils-ping
 ping db
+
+## TODO
+
+-   Fix XDebug
+    https://stackoverflow.com/questions/62104199/issues-when-debugging-php-in-vscode-using-docker-and-wsl2

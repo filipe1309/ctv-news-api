@@ -23,7 +23,8 @@ RUN echo "[Xdebug]\n" \
     "xdebug.discover_client_host=1\n" \
     "xdebug.idekey=DOCKER_XDEBUG\n" \
     "xdebug.max_nesting_level=1000\n" \
-    "xdebug.client_host="`/sbin/ip route list match 0/0 |awk '{ print $3 }'` > /usr/local/etc/php/conf.d/xdebug.ini
+    "xdebug.client_host=host.docker.internal" > /usr/local/etc/php/conf.d/xdebug.ini
+#`hostname -i
 
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
