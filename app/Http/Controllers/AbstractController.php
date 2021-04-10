@@ -112,7 +112,7 @@ abstract class AbstractController extends BaseController implements ControllerIn
             $response = $this->errorResponse($e);
         }
 
-        return response()->json($response, $response[' status_code']);
+        return response()->json($response, $response['status_code']);
     }
 
     /**
@@ -129,7 +129,7 @@ abstract class AbstractController extends BaseController implements ControllerIn
             $response = $this->errorResponse($e);
         }
 
-        return response()->json($response, $response[' status_code']);
+        return response()->json($response, $response['status_code']);
     }
 
     /**
@@ -146,6 +146,6 @@ abstract class AbstractController extends BaseController implements ControllerIn
             $response = $this->errorResponse($e);
         }
 
-        return response()->json($response, $response[' status_code']);
+        return response()->json($response, $response['status_code']);
     }
 }

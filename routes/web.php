@@ -18,95 +18,51 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => 'api/v1', 'namespace' => 'V1\Author'], function () use ($router) {
-    $router->post('/authors', [
-        'uses' => 'AuthorController@create'
-    ]);
+    $router->post('/authors', 'AuthorController@create');
 
-    $router->get('/authors', [
-        'uses' => 'AuthorController@findAll'
-    ]);
+    $router->get('/authors', 'AuthorController@findAll');
 
-    $router->get('/authors/{id}', [
-        'uses' => 'AuthorController@findOneBy'
-    ]);
+    $router->get('/authors/{id}', 'AuthorController@findOneBy');
 
-    $router->put('/authors/{param}', [
-        'uses' => 'AuthorController@editBy'
-    ]);
+    $router->put('/authors/{param}', 'AuthorController@editBy');
 
-    $router->patch('/authors/{param}', [
-        'uses' => 'AuthorController@editBy'
-    ]);
+    $router->patch('/authors/{param}', 'AuthorController@editBy');
 
-    $router->delete('/authors/{id}', [
-        'uses' => 'AuthorController@delete'
-    ]);
+    $router->delete('/authors/{id}', 'AuthorController@delete');
 });
 
 $router->group(['prefix' => 'api/v1', 'namespace' => 'V1\News'], function () use ($router) {
-    $router->post('/news', [
-        'uses' => 'NewsController@create'
-    ]);
+    $router->post('/news', 'NewsController@create');
 
-    $router->get('/news', [
-        'uses' => 'NewsController@findAll'
-    ]);
+    $router->get('/news', 'NewsController@findAll');
 
-    $router->get('/news/author/{authorId}', [
-        'uses' => 'NewsController@findByAuthor'
-    ]);
+    $router->get('/news/author/{authorId}', 'NewsController@findByAuthor');
 
-    $router->get('/news/{param}', [
-        'uses' => 'NewsController@findBy'
-    ]);
+    $router->get('/news/{param}', 'NewsController@findBy');
 
-    $router->put('/news/{param}', [
-        'uses' => 'NewsController@editBy'
-    ]);
+    $router->put('/news/{param}', 'NewsController@editBy');
 
-    $router->patch('/news/{param}', [
-        'uses' => 'NewsController@editBy'
-    ]);
+    $router->patch('/news/{param}', 'NewsController@editBy');
 
-    $router->delete('/news/{param}', [
-        'uses' => 'NewsController@deleteBy'
-    ]);
+    $router->delete('/news/{param}', 'NewsController@deleteBy');
 
-    $router->delete('/news/{authorId}', [
-        'uses' => 'NewsController@deleteByAuthor'
-    ]);
+    $router->delete('/news/author/{authorId}', 'NewsController@deleteByAuthor');
 });
 
 $router->group(['prefix' => 'api/v1', 'namespace' => 'V1\ImageNews'], function () use ($router) {
-    $router->post('/image-news', [
-        'uses' => 'ImageNewsController@create'
-    ]);
+    $router->post('/image-news', 'ImageNewsController@create');
 
-    $router->get('/image-news', [
-        'uses' => 'ImageNewsController@findAll'
-    ]);
+    $router->get('/image-news', 'ImageNewsController@findAll');
 
-    $router->get('/image-news/news/{newsId}', [
-        'uses' => 'ImageNewsController@findByNews'
-    ]);
+    $router->get('/image-news/news/{newsId}', 'ImageNewsController@findByNews');
 
-    $router->get('/image-news/{id}', [
-        'uses' => 'ImageNewsController@findOneBy'
-    ]);
+    $router->get('/image-news/{id}', 'ImageNewsController@findOneBy');
 
-    $router->put('/image-news/{param}', [
-        'uses' => 'ImageNewsController@editBy'
-    ]);
+    $router->put('/image-news/{param}', 'ImageNewsController@editBy');
 
-    $router->patch('/image-news/{param}', [
-        'uses' => 'ImageNewsController@editBy'
-    ]);
+    $router->patch('/image-news/{param}', 'ImageNewsController@editBy');
 
-    $router->delete('/image-news/{newsId}', [
-        'uses' => 'ImageNewsController@deleteByNews'
-    ]);
+    $router->delete('/image-news/{id}', 'ImageNewsController@delete');
 
-    $router->delete('/image-news/{id}', [
-        'uses' => 'ImageNewsController@delete'
-    ]);
+    $router->delete('/image-news/news/{newsId}', 'ImageNewsController@deleteByNews');
 });
