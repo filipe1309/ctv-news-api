@@ -34,7 +34,7 @@ git@github.com:filipe1309/ctv-news-api.git
 cd ctv-news-api
 ```
 
-#### Run the migrations to create db tables
+#### Run the migrations to create db tables on db container
 
 ```sh
 docker exec -t news-api_php_1 php artisan migrate
@@ -47,6 +47,12 @@ docker exec -t news-api_php_1 php artisan migrate
 ```
 
 The app will run at: http://localhost:5001
+
+### Testing
+
+```sh
+docker exec -it news-api_php_1 php ./vendor/bin/phpunit --testdox
+```
 
 ## About Me
 
