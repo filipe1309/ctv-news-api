@@ -1,0 +1,47 @@
+
+# Rest Client - VSCode extension
+
+# Alive
+GET http://localhost:5001/
+
+###
+
+# Get Authors
+GET http://localhost:5001/api/v1/authors
+
+###
+
+# Create Author
+POST http://localhost:5001/api/v1/authors
+Content-Type: application/json
+{
+	"first_name": "John",
+	"last_name": "Doe",
+	"email": "john.doe@test.com",
+	"password": "12345",
+	"genre": "M",
+	"active": true
+}
+
+###
+
+# Get Author
+GET http://localhost:5001/api/v1/authors/1
+
+###
+
+# Update Author
+PATCH http://localhost:5001/api/v1/authors/1
+Content-Type: application/json
+{
+	"first_name": "John",
+	"last_name": "Doe",
+	"email": "john.doe@test.com.br",
+	"active": true
+}
+
+###
+
+# Delete Author
+DELETE http://localhost:5001/api/v1/authors/1
+
