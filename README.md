@@ -51,7 +51,7 @@ The app will run at: http://localhost:5001
 ### Testing
 
 ```sh
-docker exec -it news-api_php_1 php ./vendor/bin/phpunit --testdox
+docker exec -it news-api_php_1 php ./vendor/bin/phpunit
 ```
 
 ## About Me
