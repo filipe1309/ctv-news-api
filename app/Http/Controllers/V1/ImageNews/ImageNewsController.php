@@ -60,6 +60,6 @@ class ImageNewsController extends AbstractController
             $response = $this->errorResponse($e);
         }
 
-        return response()->json($response, $response[' status_code']);
+        return response()->json($response, $response['status_code']);
     }
 }
