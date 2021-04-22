@@ -7,7 +7,7 @@
 
 ## 💬 About
 
-This project was developed following Console TV youtube playlist "[Lumen Microframework](https://www.youtube.com/playlist?list=PLTZ2g-iFpCUuNWZ7wtDoxbKpSAChDyS0o)".
+This project was developed following **Level PHP** youtube playlist "[Lumen Microframework](https://www.youtube.com/playlist?list=PLTZ2g-iFpCUuNWZ7wtDoxbKpSAChDyS0o)".
 
 ## :computer: Technologies
 
