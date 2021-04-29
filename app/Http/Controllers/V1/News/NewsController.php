@@ -18,7 +18,7 @@ class NewsController extends AbstractController
     /**
      * @var array
      */
-    protected array $searchFields = ['title', 'slug'];
+    protected array $searchFields = ['title', 'slug', 'subtitle'];
 
     /**
      * NewsController constructor.
