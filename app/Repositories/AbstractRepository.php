@@ -87,7 +87,7 @@ abstract class AbstractRepository implements RepositoryInterface
         $results = $this->model::where($searchFields[0], 'like', "%$string%");
 
         if (count($searchFields) > 1) {
-            foreach ($$searchFields as $field) {
+            foreach ($searchFields as $field) {
                 $results->orWhere($field, 'like', "%$string%");
             }
         }
