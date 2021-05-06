@@ -5,6 +5,8 @@ php artisan make:migration create_author_table
 php artisan make:migration create_news_table
 php artisan make:migration create_image_news_table
 
+### Ep 22
+
 https://github.com/maxsky/Lumen-AppKey-Generator
 composer require maxsky/lumen-app-key-generator
 php artisan key:generate
