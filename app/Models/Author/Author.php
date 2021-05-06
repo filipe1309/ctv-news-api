@@ -32,7 +32,7 @@ class Author extends Model
      * @var array
      */
     protected $hidden = [
-        'password'
+        // 'password' // TODO: apply hash
     ];
 
     // public $timestamps = false; // disable create_at, updated_at
