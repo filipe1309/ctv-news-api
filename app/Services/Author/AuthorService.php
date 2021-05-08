@@ -10,4 +10,24 @@ use App\Services\AbstractService;
  */
 class AuthorService extends AbstractService
 {
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function create(array $data): array
+    {
+        $data['password'] = encrypt($data['password']);
+        return $this->repository->create($data);
+    }
+
+    /**
+     * @param string $param
+     * @param array $data
+     * @return boolean
+     */
+    public function editBy(string $param, array $data): bool
+    {
+        $data['password'] = encrypt($data['password']);
+        return $this->repository->editBy($param, $data);
+    }
 }
