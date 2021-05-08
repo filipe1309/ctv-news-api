@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# DevOntheRun Deploy Script
+
 echo "#############################################"
 echo "                   DEPLOY                   "
 echo "#############################################"
@@ -57,7 +59,8 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
     echo "---------------------------------------------"
     echo "Deploying..."
-    git tag -a $TAG_NAME -m "$TAG_MSG" && git ps origin $GIT_BRANCH && git ps origin $GIT_BRANCH --tags && git co main 
+    git add notes.md && git commit -m "docs: update notes"
+    git tag -a $TAG_NAME -m "$TAG_MSG" && git push origin $GIT_BRANCH && git push origin $GIT_BRANCH --tags && git checkout main
     confirm "Pull from repo? [y/N]" && git pl
     echo "Deploy completed!"
 else
