@@ -61,3 +61,6 @@ tree . -L 1
     https://stackoverflow.com/questions/62104199/issues-when-debugging-php-in-vscode-using-docker-and-wsl2
 
 to use `encrypt` method we must set `APP_KEY` env var first
+
+php artisan make:migration change_image_column_type
+docker-compose exec -t php php artisan migrate
