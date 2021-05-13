@@ -98,6 +98,7 @@ $app->configure('app');
 $app->register(App\Providers\AuthorServiceProvider::class);
 $app->register(App\Providers\NewsServiceProvider::class);
 $app->register(App\Providers\ImageNewsServiceProvider::class);
+$app->register(Cviebrock\EloquentSluggable\ServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
