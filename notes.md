@@ -62,5 +62,32 @@ tree . -L 1
 
 to use `encrypt` method we must set `APP_KEY` env var first
 
+```php
+
 php artisan make:migration change_image_column_type
 docker-compose exec -t php php artisan migrate
+
+## Ep 25
+
+composer require cviebrock/eloquent-sluggable
+```
+
+NewsService Manual Slugs
+
+```php
+use Illuminate\Support\Str;
+
+public function create(array $data): array
+{
+    $data['slug'] = $data['slug'] ?? Str::slug($data['title'] . ' ' . $data['subtitle']);
+    return $this->repository->create($data);
+}
+
+public function editBy(string $param, array $data): bool
+{
+    //$data['slug'] = $data['slug'] ?? Str::slug($data['title'] . ' ' . $data['subtitle']);
+    return $this->repository->editBy($param, $data);
+}
+```
+
+https://github.com/cviebrock/eloquent-sluggable
