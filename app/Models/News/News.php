@@ -37,10 +37,10 @@ class News extends Model
      */
     public array $rules = [
         'author_id' => 'required | numeric',
-        'title' => 'required | min:20 | max:100 | alpha_num',
+        'title' => 'required | min:20 | max:100',
         'subtitle' => 'required | min:20 | max:155 | alpha_num',
         'description' => 'required | min:100',
-        'slug' => 'required | alpha_dash'
+        'slug' => 'alpha_dash'
     ];
 
     /**
