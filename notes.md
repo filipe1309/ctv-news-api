@@ -91,3 +91,5 @@ public function editBy(string $param, array $data): bool
 ```
 
 https://github.com/cviebrock/eloquent-sluggable
+
+php artisan make:seeder UserSeeder
