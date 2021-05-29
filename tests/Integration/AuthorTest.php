@@ -4,12 +4,11 @@ namespace Tests\Integration;
 
 use TestCase;
 use App\Models\Author\Author;
-use Laravel\Lumen\Testing\DatabaseTransactions;
 use Laravel\Lumen\Testing\DatabaseMigrations;
 
 class AuthorTest extends TestCase
 {
-    use DatabaseTransactions, DatabaseMigrations;
+    use DatabaseMigrations;
 
     public function setUp(): void
     {
