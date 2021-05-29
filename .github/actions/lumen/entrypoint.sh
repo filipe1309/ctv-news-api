@@ -8,6 +8,6 @@ sleep 5
 
 php artisan cache:clear
 
-php artisan migrate:fresh --seed
+# php artisan migrate:fresh --seed
 
 php vendor/bin/phpunit
