@@ -129,3 +129,10 @@ then
 ```sh
 git commit
 ```
+
+## GitHub Actions
+
+composer require --dev phpstan/phpstan
+composer require --dev squizlabs/php_codesniffer
+
+./vendor/bin/phpcs
