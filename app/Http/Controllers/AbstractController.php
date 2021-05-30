@@ -45,7 +45,7 @@ abstract class AbstractController extends BaseController implements ControllerIn
     }
 
     /**
-     * @param array $data
+     * @param Exception $e
      * @param integer $statusCode
      * @return array
      */

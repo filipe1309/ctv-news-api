@@ -41,6 +41,7 @@ class NewsController extends AbstractController
             $limit = (int) $request->get('limit', 10);
             $orderBy = OrderByHelper::treatOrderBy($request->get('order_by', ''));
 
+            /** @var Object $this */
             $result = $this->service->findByAuthor($authorId, $limit, $orderBy);
             $response = $this->successResponse($result, Response::HTTP_PARTIAL_CONTENT);
         } catch (Exception $e) {
@@ -58,6 +59,7 @@ class NewsController extends AbstractController
     public function findBy(Request $request, string $param): JsonResponse
     {
         try {
+            /** @var Object $this */
             $result = $this->service->findBy($param);
             $response = $this->successResponse($result);
         } catch (Exception $e) {
@@ -75,6 +77,7 @@ class NewsController extends AbstractController
     public function deleteBy(Request $request, string $param): JsonResponse
     {
         try {
+            /** @var Object $this */
             $result['deleted'] = $this->service->deleteBy($param);
             $response = $this->successResponse($result, Response::HTTP_NO_CONTENT);
         } catch (Exception $e) {
@@ -92,6 +95,7 @@ class NewsController extends AbstractController
     public function deleteByAuthor(Request $request, int $authorId): JsonResponse
     {
         try {
+            /** @var Object $this */
             $result['deleted'] = $this->service->deleteByAuthor($authorId);
             $response = $this->successResponse($result, Response::HTTP_NO_CONTENT);
         } catch (Exception $e) {

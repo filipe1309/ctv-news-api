@@ -19,12 +19,13 @@ class ValidateDataMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        /** @var Object $this */
         $validate = $this->validate($request);
         $response = [
             'status_code' => 400,
             'error' => true,
             'error_message' => 'Invalid data',
-            'error_description' => $validate->messages()
+            'error_description' => $validate->messages() // @phpstan-ignore-line
         ];
 
         if ($validate->passes()) {
@@ -45,9 +46,15 @@ class ValidateDataMiddleware
         return $model;
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Validation\Validator
+     */
     private function validate(Request $request)
     {
-        $alias = $request->route()[1]['as'];
+        $routerArr = (array) $request->route();
+        $alias = $routerArr[1]['as'];
+        /** @var Object $this */
         $model = $this->defineModel($alias);
 
         if (empty($model)) {

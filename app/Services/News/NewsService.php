@@ -18,6 +18,7 @@ class NewsService extends AbstractService
      */
     public function findByAuthor(int $authorId, int $limit = 10, array $orderBy = []): array
     {
+        /** @var Object $this */
         return $this->repository->findByAuthor($authorId, $limit, $orderBy);
     }
 
@@ -29,6 +30,7 @@ class NewsService extends AbstractService
      */
     public function findBy(string $param): array
     {
+        /** @var Object $this */
         return $this->repository->findBy($param);
     }
 
@@ -38,6 +40,7 @@ class NewsService extends AbstractService
      */
     public function deleteBy(string $param): bool
     {
+        /** @var Object $this */
         return $this->repository->deleteBy($param);
     }
 
@@ -49,6 +52,7 @@ class NewsService extends AbstractService
      */
     public function deleteByAuthor(int $authorId): bool
     {
+        /** @var Object $this */
         return $this->repository->deleteByAuthor($authorId);
     }
 }
