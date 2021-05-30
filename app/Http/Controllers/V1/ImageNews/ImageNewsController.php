@@ -37,6 +37,7 @@ class ImageNewsController extends AbstractController
     public function findByNews(Request $request, int $newsId): JsonResponse
     {
         try {
+            /** @var Object $this */
             $result = $this->service->findByNews($newsId);
             $response = $this->successResponse($result);
         } catch (Exception $e) {
@@ -54,6 +55,7 @@ class ImageNewsController extends AbstractController
     public function deleteByNews(Request $request, int $newsId): JsonResponse
     {
         try {
+            /** @var Object $this */
             $result['deleted'] = $this->service->deleteByNews($newsId);
             $response = $this->successResponse($result, Response::HTTP_NO_CONTENT);
         } catch (Exception $e) {

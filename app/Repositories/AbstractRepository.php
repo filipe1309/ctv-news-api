@@ -60,8 +60,7 @@ abstract class AbstractRepository implements RepositoryInterface
      */
     public function editBy(string $param, array $data): bool
     {
-        $result = $this->model::find($param)
-            ->update($data);
+        $result = $this->model::find($param)?->update($data);
 
         return !!$result;
     }
@@ -111,21 +110,19 @@ abstract class AbstractRepository implements RepositoryInterface
     protected function buildOrderBy(Builder $results, array $orderBy): Builder
     {
         foreach ($orderBy as $key => $value) {
-            if (strstr($key, '-')) {
-                $key = substr($key, 1);
+            if (strstr((string) $key, '-')) {
+                $key = substr((string) $key, 1);
             }
 
-            $results->orderBy($key, $value);
+            $results->orderBy((string) $key, $value);
         }
 
         return $results;
     }
 
     /**
-     * 
      * Appends = insert into queryStrings into url on pagination
      * http://api/v1/author?order_by=-name,date&limit=12
-     * 
      * @param Builder $results
      * @param array $orderBy
      * @param integer $limit

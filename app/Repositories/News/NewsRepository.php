@@ -55,7 +55,7 @@ class NewsRepository extends AbstractRepository
             $news = $this->model::where('slug', $param);
         }
 
-        return !!$news->update($data);
+        return !!$news?->update($data);
     }
 
     /**

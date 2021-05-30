@@ -17,6 +17,7 @@ class ImageNewsService extends AbstractService
      */
     public function findByNews(int $newsId): array
     {
+        /** @var Object $this */
         return $this->repository->findByNews($newsId);
     }
 
@@ -28,6 +29,7 @@ class ImageNewsService extends AbstractService
      */
     public function deleteByNews(int $newsId): bool
     {
+        /** @var Object $this */
         return $this->repository->deleteByNews($newsId);
     }
 
@@ -38,7 +40,7 @@ class ImageNewsService extends AbstractService
     public function create(array $data): array
     {
         $this->isImage($data['image']);
-        $data['image'] = base64_encode(file_get_contents($data['image']));
+        $data['image'] = base64_encode((string) file_get_contents($data['image']));
 
         return $this->repository->create($data);
     }
@@ -51,7 +53,7 @@ class ImageNewsService extends AbstractService
     public function editBy(string $param, array $data): bool
     {
         $this->isImage($data['image']);
-        $data['image'] = base64_encode(file_get_contents($data['image']));
+        $data['image'] = base64_encode((string) file_get_contents($data['image']));
         return $this->repository->editBy($param, $data);
     }
 
@@ -61,7 +63,7 @@ class ImageNewsService extends AbstractService
      */
     private function isImage(string $file): bool
     {
-        $imageArray = getimagesize($file);
+        $imageArray = (array) getimagesize($file);
         if (!in_array($imageArray[2], [IMAGETYPE_JPEG, IMAGETYPE_PNG])) {
             throw new InvalidArgumentException('Invalid image type');
         }
