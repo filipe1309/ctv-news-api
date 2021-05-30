@@ -132,7 +132,18 @@ git commit
 
 ## GitHub Actions
 
-composer require --dev phpstan/phpstan
 composer require --dev squizlabs/php_codesniffer
 
-./vendor/bin/phpcs
+./vendor/bin/phpcs --do-not-cache-result
+
+composer require --dev phpstan/phpstan
+composer require --dev nunomaduro/larastan
+
+-> ./vendor/bin/phpstan analyse app
+-> ./vendor/bin/phpstan analyse app --level max
+-> ./vendor/bin/phpstan analyse app --level 2
+
+https://github.com/nunomaduro/larastan
+./vendor/bin/phpstan analyse --memory-limit=2G
+
+https://medium.com/@kingsolomon1/tips-and-tools-ive-learned-while-building-a-lumen-api-for-my-startup-app-9aede1330534
