@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  phpunit:
-    name: PHPUnit
+  phpvalidation:
+    name: PHP Validation Step
 
     runs-on: ubuntu-latest
 
@@ -27,3 +27,4 @@ jobs:
       - uses: ./.github/actions/lumen
       - run: ./vendor/bin/phpunit --do-not-cache-result
       - run: ./vendor/bin/phpcs
+      - run: ./vendor/bin/phpstan analyse  --memory-limit=2G
