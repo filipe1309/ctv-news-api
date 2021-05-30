@@ -122,10 +122,8 @@ abstract class AbstractRepository implements RepositoryInterface
     }
 
     /**
-     * 
      * Appends = insert into queryStrings into url on pagination
      * http://api/v1/author?order_by=-name,date&limit=12
-     * 
      * @param Builder $results
      * @param array $orderBy
      * @param integer $limit
