@@ -4,7 +4,6 @@
 
     <!-- Folders/files to sniff for -->
     <file>app</file>
-    <file>tests</file>
     <file>routes</file>
     <file>config</file>
 
