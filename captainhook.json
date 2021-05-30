@@ -1,0 +1,8 @@
+{
+    "prepare-commit-msg": {
+        "enabled": true,
+        "actions": [{
+            "action": "\\Ramsey\\CaptainHook\\PrepareConventionalCommit"
+        }]
+    }
+}
