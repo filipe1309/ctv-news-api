@@ -4,6 +4,7 @@ namespace App\Models\Author;
 
 use App\Models\News\News;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Author
@@ -11,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Author extends Model
 {
+    use HasFactory;
+
     /**
      * @var string
      */
