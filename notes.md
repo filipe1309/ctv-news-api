@@ -94,29 +94,36 @@ https://github.com/cviebrock/eloquent-sluggable
 
 ## Commit
 
-https://github.com/BrainMaestro/composer-git-hooks
-https://github.com/conventional-commits/php-commitizen
-
-```sh
-composer require --dev brainmaestro/composer-git-hooks
-composer require --dev damianopetrungaro/php-commitizen
-php vendor/bin/php-commitizen commit
-composer cghooks add
-composer cghooks update
-composer cghooks remove
-
-"pre-commit": [
-    "echo 'Lumen API'"
-],
-"prepare-commit-msg": [
-    "exec < /dev/tty && php vendor/bin/php-commitizen commit || true"
-]
-
-
-
 https://github.com/captainhookphp/captainhook
 https://github.com/ramsey/conventional-commits
 
+```sh
 composer require --dev ramsey/conventional-commits
+```
 
+captainhook.json
+
+```json
+{
+    "prepare-commit-msg": {
+        "enabled": true,
+        "actions": [
+            {
+                "action": "\\Ramsey\\CaptainHook\\PrepareConventionalCommit"
+            }
+        ]
+    }
+}
+```
+
+captainhook setup
+
+```sh
+vendor/bin/captainhook install
+```
+
+then
+
+```sh
+git commit
 ```
