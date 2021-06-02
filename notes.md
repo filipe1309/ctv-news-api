@@ -147,3 +147,5 @@ https://github.com/nunomaduro/larastan
 ./vendor/bin/phpstan analyse --memory-limit=2G
 
 https://medium.com/@kingsolomon1/tips-and-tools-ive-learned-while-building-a-lumen-api-for-my-startup-app-9aede1330534
+
+## ep 27
