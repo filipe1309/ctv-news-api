@@ -21,7 +21,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'api/v1', 'namespace' => 'V1\Author', 'as', Author::class], function () use ($router) {
+$router->group(['prefix' => 'api/v1', 'namespace' => 'V1\Author', 'as' => Author::class], function () use ($router) {
     $router->post('/authors', [
         'uses' => 'AuthorController@create',
         'middleware' => 'ValidateDataMiddleware'
