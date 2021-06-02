@@ -41,5 +41,5 @@ WORKDIR /var/www/html
 EXPOSE 80 443 9003
 
 # RUN rm -Rf /home/root/.composer
-CMD composer install && php-fpm
+CMD COMPOSER_MEMORY_LIMIT=-1 composer install && php-fpm
 
